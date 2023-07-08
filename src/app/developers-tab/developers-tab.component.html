@@ -1,1 +1,22 @@
-<p>developers-tab works!</p>
+<div class="developers-container">
+  <div class="developers-list">
+    <h1 style="margin-left: 4%;">Developers</h1>
+    <div class="add-buttonblock">
+      <ng-container *ngIf="!showForm">
+        <button class="add-button" (click)="showForm = true">Add Developer</button>
+      </ng-container>
+      <ng-container *ngIf="showForm">
+        <div class="add-form">
+          <input [(ngModel)]="newDeveloperName" placeholder="Developer Name">
+          <button (click)="addDeveloper(); showForm = false">Confirm</button>
+        </div>
+      </ng-container>
+    </div>
+    <ul>
+      <li *ngFor="let developer of developers">
+        {{ developer.name }}
+        <button (click)="deleteDeveloper(developer.id)">Delete</button>
+      </li>
+    </ul>
+  </div>
+</div>

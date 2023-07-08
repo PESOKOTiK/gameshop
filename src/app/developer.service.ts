@@ -7,7 +7,7 @@ import { Developer } from './developer.model';
   providedIn: 'root'
 })
 export class DeveloperService {
-  private apiUrl = 'http://localhost:5000/api/developers'; // Замените на ваш URL веб-API
+  private apiUrl = 'http://localhost:5055/api/Developers'; // Замените на ваш URL веб-API
 
   constructor(private http: HttpClient) { }
 
