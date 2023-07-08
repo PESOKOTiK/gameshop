@@ -8,14 +8,14 @@
       <ng-container *ngIf="showForm">
         <div class="add-form">
           <input [(ngModel)]="newDeveloperName" placeholder="Developer Name">
-          <button (click)="addDeveloper(); showForm = false">Confirm</button>
+          <button class="add-button" (click)="addDeveloper(); showForm = false">Confirm</button>
         </div>
       </ng-container>
     </div>
     <ul>
-      <li *ngFor="let developer of developers">
+      <li *ngFor="let developer of developers" class="developers-list">
         {{ developer.name }}
-        <button (click)="deleteDeveloper(developer.id)">Delete</button>
+        <button class="del-button" (click)="deleteDeveloper(developer.id)">Delete</button>
       </li>
     </ul>
   </div>
