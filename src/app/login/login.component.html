@@ -1,1 +1,10 @@
-<p>login works!</p>
+<div>
+    <h1>Login</h1>
+    <div>
+      <input [(ngModel)]="user.email" placeholder="Email">
+    </div>
+    <div>
+      <input [(ngModel)]="user.password" placeholder="Password">
+    </div>
+    <button (click)="loginUser()">Login</button>
+  </div>

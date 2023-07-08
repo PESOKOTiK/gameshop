@@ -1,1 +1,33 @@
-<p>genres-tab works!</p>
+<div class="genre-container">
+    <div class="genre-list">
+      <h1 style="margin-left: 4%;">Genres</h1>
+      <ul>
+        <li *ngFor="let genre of genres">
+          {{ genre.name }}
+          <button class="del-button" (click)="deleteGenre(genre.id)">Delete</button>
+          <ng-container *ngIf="showForm2==false">
+            <button class="edit-button" (click)="showForm2=true;editGenre(genre.id)">Edit</button>
+          </ng-container>
+          
+        </li>
+      </ul>
+      <div class="add-buttonblock">
+        <ng-container *ngIf="!showForm">
+          <button class="add-button" (click)="showForm = true">Add Genre</button>
+        </ng-container>
+        <ng-container *ngIf="showForm">
+          <div class="add-form">
+            <input [(ngModel)]="newGenreName" placeholder="Genre Name">
+            <button (click)="addGenre(); showForm = false">Confirm</button>
+          </div>
+        </ng-container>
+        <ng-container *ngIf="showForm2">
+          <div class="edit-form">
+            <input [(ngModel)]="newGenreName" placeholder="NewGenre Name">
+            <button (click)="updateGenre(editid,newGenreName); showForm2 = false">Confirm</button>
+          </div>
+        </ng-container>
+      </div>
+      
+    </div>
+  </div>

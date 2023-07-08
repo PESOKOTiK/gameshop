@@ -1,26 +1,44 @@
 <nav class="navbar">
   <ul class="nav-list">
     <li class="nav-item">
-      <a class="nav-link" routerLink="/login" routerLinkActive="active">Login</a>
+      <a class="nav-link" (click)="toggleAllMenu()" routerLink="/games" routerLinkActive="active">Home</a>
+    </li>
+    <li class="nav-item" (click)="toggleEditorMenu()" [ngClass]="{ 'show-sub-nav': showEditorMenu }">
+      <a class="nav-link">Editor</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" routerLink="/register" routerLinkActive="active">Register</a>
+      <a class="nav-link" (click)="toggleAllMenu()" routerLink="/about" routerLinkActive="active">About</a>
     </li>
-    <li class="nav-item">
-      <a class="nav-link" routerLink="/games" routerLinkActive="active">Games</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" routerLink="/games/add" routerLinkActive="active">Add Game</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" routerLink="/developers" routerLinkActive="active">Developers</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" routerLink="/genres" routerLinkActive="active">Genres</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" routerLink="/about" routerLinkActive="active">About</a>
+    <li class="nav-item" (click)="toggleLoginMenu()" [ngClass]="{ 'show-sub-nav': showLoginMenu }">
+      <a class="nav-link">Login</a>
     </li>
   </ul>
 </nav>
+<ng-container *ngIf="showEditorMenu">
+  <nav class="navbar">
+    <ul class="nav-list">
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/developers" routerLinkActive="active">Developers</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/genres" routerLinkActive="active">Genres</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/games/add" routerLinkActive="active">Games</a>
+      </li>
+    </ul>
+  </nav>
+</ng-container>
+<ng-container *ngIf="showLoginMenu">
+  <nav class="navbar">
+    <ul class="nav-list">
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/login" routerLinkActive="active">Login</a>
+      </li >
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/register" routerLinkActive="active">Registration</a>
+      </li>
+    </ul>
+  </nav>
+</ng-container>
 <router-outlet></router-outlet>

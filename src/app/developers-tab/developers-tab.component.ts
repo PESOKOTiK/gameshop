@@ -11,6 +11,9 @@ export class DevelopersTabComponent implements OnInit {
   developers: Developer[] = [];
   newDeveloperName: string="";
   showForm=false;
+  showForm2=false;
+  editid=0;
+  newDevName="";
   constructor(private developerService: DeveloperService) { }
 
   ngOnInit() {
@@ -29,10 +32,32 @@ export class DevelopersTabComponent implements OnInit {
       );
   }
 
+  editDeveloper(id: number) {
+    this.editid = id;
+  }
+
+  updateDeveloper(id: number, name: string) {
+    const updatedDeveloper: Developer = {
+      id: id,
+      name: name
+    };
+
+    this.developerService.updateDeveloper(id, updatedDeveloper).subscribe(
+      data => {
+        this.editid = 0;
+        this.newDevName = '';
+        this.getDevelopers();
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+  }
+
   deleteDeveloper(id: number) {
     this.developerService.deleteDeveloper(id)
       .subscribe(
-        () => {
+       data => {
           this.getDevelopers();
         },
         error => {
@@ -50,7 +75,7 @@ export class DevelopersTabComponent implements OnInit {
 
       this.developerService.addDeveloper(newDeveloper)
         .subscribe(
-          () => {
+          data => {
             this.newDeveloperName = '';
             this.getDevelopers();
           },

@@ -29,7 +29,6 @@
           }
         }
       }
-  
     .add-buttonblock {
         margin-left: 4%;
         text-align: right;
@@ -39,6 +38,7 @@
     }
     .add-button{
         padding: 10px 20px;
+        margin-left: 4%;
         background-color: #4CAF50; /* Зеленый цвет фона кнопки */
         color: #fff; /* Белый цвет текста кнопки */
         border: none;
@@ -47,37 +47,11 @@
         cursor: pointer;
         font-size: 16px;
         text-align: center;
-        
+        .add-button:hover {
+          background-color: #45a049; /* Изменение цвета фона при наведении */
+        }
     }
-    .add-button:hover {
-        background-color: #45a049; /* Изменение цвета фона при наведении */
-      }
-    .add-form {
-        display: flex;
-        align-items: center;
-        margin-top: 16px;
-  
-        input {
-          padding: 8px;
-          border: 1px solid #ccc;
-          border-radius: 4px;
-        }
-  
-        button {
-          margin-left: 8px;
-          padding: 8px 16px;
-          background-color: #007bff;
-          color: white;
-          border: none;
-          border-radius: 4px;
-          cursor: pointer;
-  
-          &:hover {
-            background-color: #0056b3;
-          }
-        }
-      }
-      .del-button{
+    .del-button{
         padding: 10px 20px;
         background-color: #af4c4c; /* Зеленый цвет фона кнопки */
         color: #fff; /* Белый цвет текста кнопки */
@@ -88,9 +62,77 @@
         font-size: 16px;
         text-align: center;
         margin-left: 5%;
+        .del-button:hover {
+          background-color: #a04545; /* Изменение цвета фона при наведении */
+        }
+    }
+    .edit-button{
+        padding: 10px 20px;
+        background-color: #4cadaf; /* Зеленый цвет фона кнопки */
+        color: #fff; /* Белый цвет текста кнопки */
+        border: none;
+        border-radius: 4px;
+        transition: background-color 0.3s ease;
+        cursor: pointer;
+        font-size: 16px;
+        text-align: center;
+        margin-left: 5%;
+        .edit-button:hover {
+          background-color: #4597a0; /* Изменение цвета фона при наведении */
+        }
         
     }
-    .del-button:hover {
-        background-color: #a04545; /* Изменение цвета фона при наведении */
+    .add-form {
+        display: flex;
+        align-items: center;
+        margin-left: 16px;
+        margin-right: 16px;
+    
+        input {
+          padding: 8px;
+          border: 1px solid #ccc;
+          border-radius: 4px;
+        }
+    
+        button {
+          margin-left: 8px;
+          padding: 8px 16px;
+          background-color: #007bff;
+          color: white;
+          border: none;
+          border-radius: 4px;
+          cursor: pointer;
+    
+          add:hover {
+            background-color: #0056b3;
+          }
+        }
+    }
+    .edit-form {
+      display: flex;
+      align-items: center;
+      margin-top: 5px;
+      margin-left: 4%;
+      margin-right: 16px;
+  
+      input {
+        padding: 8px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
       }
+  
+      button {
+        margin-left: 8px;
+        padding: 8px 16px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+  
+        add:hover {
+          background-color: #0056b3;
+        }
+      }
+  }
   }

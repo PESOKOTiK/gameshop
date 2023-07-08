@@ -7,7 +7,7 @@ import { Game } from './game.model';
   providedIn: 'root'
 })
 export class GameService {
-  private apiUrl = 'http://localhost:5000/api/games'; // Замените на ваш URL веб-API
+  private apiUrl = 'http://localhost:5055/api/games'; // Замените на ваш URL веб-API
 
   constructor(private http: HttpClient) { }
 

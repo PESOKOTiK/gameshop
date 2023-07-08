@@ -7,7 +7,7 @@ import { Genre } from './genre.model';
   providedIn: 'root'
 })
 export class GenreService {
-  private apiUrl = 'http://localhost:5000/api/genres'; // Замените на ваш URL веб-API
+  private apiUrl = 'http://localhost:5055/api/genres'; // Замените на ваш URL веб-API
 
   constructor(private http: HttpClient) { }
 

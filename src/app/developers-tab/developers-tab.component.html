@@ -2,21 +2,30 @@
   <div class="developers-list">
     <h1 style="margin-left: 4%;">Developers</h1>
     <div class="add-buttonblock">
-      <ng-container *ngIf="!showForm">
-        <button class="add-button" (click)="showForm = true">Add Developer</button>
-      </ng-container>
-      <ng-container *ngIf="showForm">
-        <div class="add-form">
-          <input [(ngModel)]="newDeveloperName" placeholder="Developer Name">
-          <button class="add-button" (click)="addDeveloper(); showForm = false">Confirm</button>
-        </div>
-      </ng-container>
     </div>
     <ul>
       <li *ngFor="let developer of developers" class="developers-list">
         {{ developer.name }}
         <button class="del-button" (click)="deleteDeveloper(developer.id)">Delete</button>
+        <ng-container *ngIf="showForm2==false">
+          <button class="edit-button" (click)="showForm2=true;editDeveloper(developer.id)">Edit</button>
+        </ng-container>
       </li>
     </ul>
+    <ng-container *ngIf="!showForm">
+      <button class="add-button" (click)="showForm = true">Add Developer</button>
+    </ng-container>
+    <ng-container *ngIf="showForm">
+      <div class="add-form">
+        <input [(ngModel)]="newDeveloperName" placeholder="Developer Name">
+        <button class="add-button" (click)="addDeveloper(); showForm = false">Confirm</button>
+      </div>
+    </ng-container>
+    <ng-container *ngIf="showForm2">
+      <div class="edit-form">
+        <input [(ngModel)]="newDevName" placeholder="New Developer Name">
+          <button (click)="updateDeveloper(editid,newDevName); showForm2 = false">Confirm</button>
+      </div>
+    </ng-container>
   </div>
 </div>

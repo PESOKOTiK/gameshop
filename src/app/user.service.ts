@@ -7,15 +7,15 @@ import { User } from './user.model';
   providedIn: 'root'
 })
 export class UserService {
-  private apiUrl = 'http://localhost:5000/api/users'; // Замените на ваш URL веб-API
+  private apiUrl = 'http://localhost:5055/api/users'; // Замените на ваш URL веб-API
 
   constructor(private http: HttpClient) { }
 
   registerUser(user: User): Observable<User> {
-    return this.http.post<User>(`${this.apiUrl}/register`, user);
+    return this.http.post<User>(this.apiUrl, user);
   }
 
-  loginUser(user: User): Observable<User> {
-    return this.http.post<User>(`${this.apiUrl}/login`, user);
+  getUser(): Observable<User> {
+    return this.http.get<User>(this.apiUrl);
   }
 }
