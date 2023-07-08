@@ -1,0 +1,30 @@
+.navbar {
+    background-color: #228B22; /* Зеленый цвет фона */
+    padding: 10px;
+    margin: -10px;
+  
+    .nav-list {
+      list-style-type: none;
+      display: flex;
+      justify-content: center;
+  
+      .nav-item {
+        margin-right: 10px;
+  
+        .nav-link {
+          color: #fff; /* Белый цвет текста ссылок */
+          text-decoration: none;
+          padding: 5px;
+          font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  
+          &:hover {
+            color: #00BFFF; /* Синий цвет текста ссылок при наведении */
+          }
+        }
+  
+        &.active {
+          font-weight: bold; /* Жирный шрифт для активной ссылки */
+        }
+      }
+    }
+  }
