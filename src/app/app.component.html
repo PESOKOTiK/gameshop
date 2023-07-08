@@ -9,9 +9,11 @@
     <li class="nav-item">
       <a class="nav-link" (click)="toggleAllMenu()" routerLink="/about" routerLinkActive="active">About</a>
     </li>
-    <li class="nav-item" (click)="toggleLoginMenu()" [ngClass]="{ 'show-sub-nav': showLoginMenu }">
-      <a class="nav-link">Login</a>
-    </li>
+    <ng-container *ngIf="showform==true">
+      <li class="nav-item" (click)="toggleLoginMenu()" [ngClass]="{ 'show-sub-nav': showLoginMenu }">
+        <a class="nav-link">Login</a>
+      </li>
+    </ng-container>
   </ul>
 </nav>
 <ng-container *ngIf="showEditorMenu">

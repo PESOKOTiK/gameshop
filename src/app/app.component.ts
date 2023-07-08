@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { UserService } from './user.service';
 
 @Component({
   selector: 'app-root',
@@ -9,6 +10,7 @@ export class AppComponent {
   title = 'gameshop';
   showEditorMenu: boolean = false;
   showLoginMenu: boolean = false;
+  showform: boolean = true;
 
   toggleEditorMenu() {
     this.showEditorMenu = !this.showEditorMenu;

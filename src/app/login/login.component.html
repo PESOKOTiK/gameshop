@@ -1,5 +1,5 @@
 <div>
-    <h1>Login</h1>
+    <h2>Login</h2>
     <div>
       <input [(ngModel)]="user.email" placeholder="Email">
     </div>
@@ -7,4 +7,10 @@
       <input [(ngModel)]="user.password" placeholder="Password">
     </div>
     <button (click)="loginUser()">Login</button>
-  </div>
+    <ng-container *ngIf="showOk" class="ok-message">
+      Ok
+    </ng-container>
+    <ng-container *ngIf="showError" class="error-message">
+      <h2  class="error-message">Wrong email or password, please check again</h2>
+    </ng-container>
+</div>
