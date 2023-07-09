@@ -1,1 +1,31 @@
-<p>games-table works!</p>
+<div class="games-container">
+    <div class="game-row" *ngFor="let game of games">
+      <div class="game-cell" (click)="expandGameCell(game)">
+        <img class="game-poster" [src]="game.poster" alt="Game Poster">
+        <div class="game-name">{{ game.name }}</div>
+      </div>
+      <div class="game-details" *ngIf="selectedGame && selectedGame.id === game.id">
+        <div class="game-info">
+          <div class="info-label">Name:</div>
+          <div class="info-value">{{ selectedGame.name }}</div>
+        </div>
+        <div class="game-info">
+          <div class="info-label">Year:</div>
+          <div class="info-value">{{ selectedGame.year }}</div>
+        </div>
+        <div class="game-info">
+          <div class="info-label">Rating:</div>
+          <div class="info-value">{{ selectedGame.rating }}</div>
+        </div>
+        <div class="game-info">
+          <div class="info-label">Price:</div>
+          <div class="info-value">{{ selectedGame.price }}</div>
+        </div>
+        <div class="game-info">
+          <div class="info-label">Description:</div>
+          <div class="info-value">{{ selectedGame.description }}</div>
+        </div>
+        <!-- Добавьте другую информацию об игре по вашему усмотрению -->
+      </div>
+    </div>
+  </div>

@@ -1,1 +1,121 @@
-<p>add-game works!</p>
+<div class="games-container">
+    <div class="games-list">
+      <h1 style="margin-left: 4%;">Games</h1>
+      <ul>
+        <li *ngFor="let game of games">
+          <div class="game-info">
+            <div class="game-name">{{ game.name }}</div>
+            <div class="game-details">
+              <span class="detail">Genre: {{ getGenreName(game.genreId) }}</span><br>
+              <span class="detail">Rating: {{ game.rating }}</span><br>
+              <span class="detail">Price: {{ game.price }} $</span><br>
+              <span class="detail">Dev: {{ getDeveloperName(game.developerId) }}</span><br>
+              <span class="detail">{{ game.year }}</span>
+            </div>
+            <div class="deledit">
+            <button class="del-button" (click)="deleteGame(game.id)">Delete</button>
+            <ng-container *ngIf="showForm2==false">
+                <button class="edit-button" (click)="showForm2=true;editGame(game.id)">Edit</button>
+              </ng-container>
+            </div>
+          </div>
+         
+        </li>
+      </ul>
+      <div class="add-buttonblock">
+        <ng-container *ngIf="!showForm">
+          <button class="add-button" (click)="showForm = true;showForm2=false;">Add Game</button>
+        </ng-container>
+        
+      </div>
+      
+    </div>
+    <div class="forms">
+      <ng-container *ngIf="showForm">
+        <div class="add-form">
+          <div class="form-field">  
+            <label>Name:</label>
+            <input [(ngModel)]="newGame.name" placeholder="Game Name">
+          </div>
+          <div class="form-field">  
+            <label>Description:</label>
+            <textarea rows="4" style="resize: none;" [(ngModel)]="newGame.description" placeholder="description"></textarea>
+          </div>
+          <div class="form-field">  
+            <label>Poster:</label>
+            <input [(ngModel)]="newGame.poster" placeholder="poster">
+          </div>
+          <div class="form-field">
+            <label>Genre:</label>
+            <select [(ngModel)]="newGame.genreId">
+              <option *ngFor="let genre of genres" [value]="genre.id">{{ genre.name }}</option>
+            </select>
+          </div>
+          <div class="form-field">
+            <label>Rating:</label>
+            <input type="number" [(ngModel)]="newGame.rating" placeholder="Rating">
+          </div>
+          <div class="form-field">
+            <label>Price:</label>
+            <input type="number" [(ngModel)]="newGame.price" placeholder="Price">
+          </div>
+          <div class="form-field">
+            <label>Developer:</label>
+            <select [(ngModel)]="newGame.developerId">
+              <option *ngFor="let developer of developers" [value]="developer.id">{{ developer.name }}</option>
+            </select>
+          </div>
+          <div class="form-field">
+            <label>Year:</label>
+            <input type="number" [(ngModel)]="newGame.year" placeholder="Year">
+          </div>
+          <button (click)="addGame(); showForm = false">Confirm</button>
+        </div>
+      </ng-container>
+      <ng-container *ngIf="showForm2">
+          <div class="edit-form">
+                <div class="form-field">
+                  <label>Id:</label>
+                  <input type="number" [(ngModel)]="newGame.id" [placeholder]="'' + editid">
+                </div>
+                <div class="form-field">  
+                  <label>Name:</label>
+                  <input [(ngModel)]="newGame.name" placeholder="Game Name">
+                </div>
+                <div class="form-field">  
+                  <label>Description:</label>
+                  <textarea rows="4" style="resize: none;" [(ngModel)]="newGame.description" placeholder="description"></textarea>
+                </div>
+                <div class="form-field">  
+                  <label>Poster:</label>
+                  <input [(ngModel)]="newGame.poster" placeholder="poster">
+                </div>
+                <div class="form-field">
+                  <label>Genre:</label>
+                  <select [(ngModel)]="newGame.genreId">
+                    <option *ngFor="let genre of genres" [value]="genre.id">{{ genre.name }}</option>
+                  </select>
+                </div>
+                <div class="form-field">
+                  <label>Rating:</label>
+                  <input type="number" [(ngModel)]="newGame.rating" placeholder="Rating">
+                </div>
+                <div class="form-field">
+                  <label>Price:</label>
+                  <input type="number" [(ngModel)]="newGame.price" placeholder="Price">
+                </div>
+                <div class="form-field">
+                  <label>Developer:</label>
+                  <select [(ngModel)]="newGame.developerId">
+                    <option *ngFor="let developer of developers" [value]="developer.id">{{ developer.name }}</option>
+                  </select>
+                </div>
+                <div class="form-field">
+                  <label>Year:</label>
+                  <input type="number" [(ngModel)]="newGame.year" placeholder="Year">
+                </div>
+                <button (click)="updateGame(editid); showForm = false">Confirm</button>
+          </div>
+        </ng-container>
+    </div>
+  </div>

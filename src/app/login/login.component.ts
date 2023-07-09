@@ -36,7 +36,8 @@ export class LoginComponent {
               this.userService.isLoggedIn=true;
               this.userService.loggedInUser=this.user.name;
               this.appService.showform = false;
-              this.router.navigate(['/games']);
+              this.appService.toggleAllMenu();
+              this.router.navigate(['/']);
           }
         }
         if(this.showOk==false)

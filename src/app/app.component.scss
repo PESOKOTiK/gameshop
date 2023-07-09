@@ -3,6 +3,11 @@
     background-color: #228B22; /* Зеленый цвет фона */
     padding: 8px;
     height: 25px;
+    position: fixed;
+    margin-bottom: 50px;
+    top: 0;
+    left: 0;
+    right: 0;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   }
   
@@ -66,4 +71,10 @@
     .active {
       color: #fff;
     }
+  }
+  .page-global
+  {
+    
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    padding: 0px;
   }

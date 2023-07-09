@@ -1,3 +1,4 @@
+<div class="page-global">
 <nav class="navbar">
   <ul class="nav-list">
     <li class="nav-item">
@@ -20,6 +21,9 @@
   <nav class="navbar">
     <ul class="nav-list">
       <li class="nav-item">
+        <a class="nav-link" routerLink="/" routerLinkActive="active" (click)="toggleAllMenu()">Back</a>
+      </li>
+      <li class="nav-item">
         <a class="nav-link" routerLink="/developers" routerLinkActive="active">Developers</a>
       </li>
       <li class="nav-item">
@@ -35,6 +39,9 @@
   <nav class="navbar">
     <ul class="nav-list">
       <li class="nav-item">
+        <a class="nav-link" routerLink="/" routerLinkActive="active" (click)="toggleAllMenu()">Back</a>
+      </li>
+      <li class="nav-item">
         <a class="nav-link" routerLink="/login" routerLinkActive="active">Login</a>
       </li >
       <li class="nav-item">
@@ -43,4 +50,7 @@
     </ul>
   </nav>
 </ng-container>
+<div style=" margin-top: 40px;">
 <router-outlet></router-outlet>
+</div>
+</div>
